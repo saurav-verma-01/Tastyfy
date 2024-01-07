@@ -3,7 +3,7 @@ import CardsContainer from "../CardsContainer/CardsContainer";
 import ResCard from "../ResCard/ResCard";
 import "./Body.css";
 
-const Body = ({ resList, handleTopRated, handleAllRes, handleFastest }) => {
+const Body = ({ displayList, handleTopRated, handleAllRes, handleFastest }) => {
   return (
     <main className="main-container">
       <div className="container ">
@@ -19,7 +19,7 @@ const Body = ({ resList, handleTopRated, handleAllRes, handleFastest }) => {
           </button>
         </div>
         <CardsContainer>
-          {resList.map((res) => (
+          {displayList.map((res) => (
             <ResCard key={res.info.id} res={res} />
           ))}
         </CardsContainer>

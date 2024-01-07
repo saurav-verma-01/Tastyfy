@@ -1,35 +1,54 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Body from "./components/Body/Body";
 import Navbar from "./components/Navbar/Navbar";
 
-import { resData } from "./constants";
-const resArr =
-  resData.data.cards[5].card.card.gridElements.infoWithStyle.restaurants;
+import { SWIGGY_API_URL } from "./constants";
+// const resArr =
+//   resData.data.cards[5].card.card.gridElements.infoWithStyle.restaurants;
 const App = () => {
-  const [resList, setResList] = useState(resArr);
+  const [resList, setResList] = useState([]);
+  const [displayList, setDisplayList] = useState([]);
+
+  useEffect(() => {
+    fetchResData();
+  }, []);
+
+  useEffect(() => {
+    setDisplayList(resList);
+  }, [resList]);
+
+  const fetchResData = async () => {
+    const res = await fetch(SWIGGY_API_URL);
+    const fetchedData = await res.json();
+    console.log(fetchedData);
+    // setting Res List to Fetched Data
+    setResList(
+      fetchedData.data.cards[5].card.card.gridElements.infoWithStyle.restaurants
+    );
+  };
 
   const filterTopRated = () => {
-    const filteredRes = resArr.filter((res) => res.info.avgRating >= 4.4);
-    setResList(filteredRes);
+    const filteredRes = resList.filter((res) => res.info.avgRating >= 4);
+    setDisplayList(filteredRes);
   };
 
   const getAllRes = () => {
-    setResList(resArr);
+    setDisplayList(resList);
   };
 
   const getFastest = () => {
-    const nearestRes = resArr.filter((res) => res.info.sla.deliveryTime <= 25);
-    setResList(nearestRes);
+    const nearestRes = resList.filter((res) => res.info.sla.deliveryTime <= 25);
+    setDisplayList(nearestRes);
   };
 
   return (
     <div>
       <Navbar />
       <Body
-        resList={resList}
         handleTopRated={filterTopRated}
         handleAllRes={getAllRes}
         handleFastest={getFastest}
+        displayList={displayList}
       />
     </div>
   );
