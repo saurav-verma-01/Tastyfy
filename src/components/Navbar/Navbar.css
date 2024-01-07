@@ -1,0 +1,34 @@
+.header {
+  padding: 1rem;
+  color: #023047;
+  background-color: #ffcd4f;
+}
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav ul {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.logo {
+  cursor: pointer;
+  transition: var(--transition);
+}
+.logo:is(:hover, :focus) {
+  color: #fb8500;
+}
+
+.nav ul a {
+  text-transform: uppercase;
+  font-weight: bold;
+  border-bottom: 2px solid transparent;
+  transition: var(--transition);
+}
+.nav ul a:is(:hover, :focus) {
+  border-color: #fb8500;
+}

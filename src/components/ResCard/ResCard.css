@@ -1,0 +1,75 @@
+.res-card {
+  border-radius: 1rem;
+  overflow: hidden;
+
+  transition: var(--transition);
+  background-color: #ffffff;
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.2);
+}
+.res-card:is(:hover, :focus-visible) {
+  transform: scale(0.95);
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.4);
+}
+.img-box {
+  position: relative;
+}
+.discount-text {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.75);
+  padding: 0.25rem;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+  font-size: 1.375rem;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: #fff;
+}
+
+.res-img {
+  height: 12rem;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.details-box {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.res-name {
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+.summary-box {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #3a3a3a;
+  font-weight: 800;
+}
+.rating-box {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.time {
+  margin-left: 0.5rem;
+}
+.star-box {
+  background-color: green;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff8e6;
+  padding: 0.25rem;
+  border-radius: 50%;
+}
+
+.cuisines {
+  font-size: 0.9rem;
+  color: #464645;
+}
