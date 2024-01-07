@@ -1,6 +1,11 @@
+import { useState } from "react";
 import "./Navbar.css";
 
 const Navbar = () => {
+  const [loginText, setLoginText] = useState("Login");
+  const handleLogin = () => {
+    loginText === "Login" ? setLoginText("Logout") : setLoginText("Login");
+  };
   return (
     <header className="header">
       <div className="container">
@@ -21,6 +26,10 @@ const Navbar = () => {
             </li>
           </ul>
         </nav>
+
+        <button className="login" onClick={handleLogin}>
+          {loginText}
+        </button>
       </div>
     </header>
   );
