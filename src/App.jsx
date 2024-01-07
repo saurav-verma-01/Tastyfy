@@ -5,12 +5,11 @@ import Navbar from "./components/Navbar/Navbar";
 import { resData } from "./constants";
 const resArr =
   resData.data.cards[5].card.card.gridElements.infoWithStyle.restaurants;
-
 const App = () => {
   const [resList, setResList] = useState(resArr);
 
   const filterTopRated = () => {
-    const filteredRes = resList.filter((res) => res.info.avgRating >= 4.4);
+    const filteredRes = resArr.filter((res) => res.info.avgRating >= 4.4);
     setResList(filteredRes);
   };
 
@@ -19,7 +18,7 @@ const App = () => {
   };
 
   const getFastest = () => {
-    const nearestRes = resList.filter((res) => res.info.sla.deliveryTime <= 25);
+    const nearestRes = resArr.filter((res) => res.info.sla.deliveryTime <= 25);
     setResList(nearestRes);
   };
 
