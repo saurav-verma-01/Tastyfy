@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import CardsContainer from "../CardsContainer/CardsContainer";
 import ResCard from "../ResCard/ResCard";
 import "./Body.css";
+import Shimmer from "../../Shimmer/Shimmer";
+
+const dummyArr = Array.from({ length: 12 });
 
 const Body = ({
   displayList,
@@ -10,28 +13,32 @@ const Body = ({
   handleAllRes,
   handleFastest,
   onSearch,
+  searchError,
 }) => {
   const [searchText, setSearchText] = useState("");
-
-  // const onSearchSubmit = (e) => {
-  //   e.preventDefault();
-  //   onSearch(searchText);
-  // };
 
   useEffect(() => {
     onSearch(searchText);
   }, [searchText, onSearch]);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSearch(searchText);
+  };
+
   return (
     <main className="main-container">
       <div className="container ">
         <div className="filter">
-          <form className="search-bar">
+          <form className="search-bar" onSubmit={handleSubmit}>
             <input
               type="text"
               value={searchText}
               className="search-box"
-              onChange={(e) => setSearchText(e.target.value)}
+              onChange={(e) => {
+                setSearchText(e.target.value);
+                console.log(searchText);
+              }}
             />
             <input type="submit" value="🔍" className="submit" />
           </form>
@@ -46,9 +53,13 @@ const Body = ({
           </button>
         </div>
         <CardsContainer>
-          {displayList.map((res) => (
-            <ResCard key={res.info.id} res={res} />
-          ))}
+          {searchError ? (
+            <p className="not-found-text">No Matching results found.</p>
+          ) : displayList.length === 0 ? (
+            dummyArr.map((_, index) => <Shimmer key={index} />)
+          ) : (
+            displayList.map((res) => <ResCard key={res.info.id} res={res} />)
+          )}
         </CardsContainer>
       </div>
     </main>

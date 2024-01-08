@@ -3,12 +3,13 @@ import Body from "./components/Body/Body";
 import Navbar from "./components/Navbar/Navbar";
 
 import { SWIGGY_API_URL } from "./constants";
-import Shimmer from "./Shimmer/Shimmer";
+
 // const resArr =
 //   resData.data.cards[5].card.card.gridElements.infoWithStyle.restaurants;
 const App = () => {
   const [resList, setResList] = useState([]);
   const [displayList, setDisplayList] = useState([]);
+  const [searchError, setSearchError] = useState(false);
 
   useEffect(() => {
     fetchResData();
@@ -21,8 +22,9 @@ const App = () => {
   const fetchResData = async () => {
     const res = await fetch(SWIGGY_API_URL);
     const fetchedData = await res.json();
-    console.log(fetchedData);
+
     // setting Res List to Fetched Data
+    // console.log("After Fetching Restraunt Data");
     setResList(
       fetchedData.data.cards[5].card.card.gridElements.infoWithStyle.restaurants
     );
@@ -42,42 +44,40 @@ const App = () => {
     setDisplayList(nearestRes);
   };
 
-  const handleSubmit = (searchTerm) => {
+  const handleSearch = (searchTerm) => {
+    // Added a Guard Clause to avoid empty search
+    if (searchTerm.trim().length < 3) {
+      setSearchError(false);
+      setDisplayList(resList);
+      return;
+    }
+
     const matchingRes = resList.filter((res) =>
       res.info.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
-    setDisplayList(matchingRes);
-  };
 
-  const dummyArr = Array.from({ length: 12 });
+    if (matchingRes.length === 0) {
+      setDisplayList([]);
+      setSearchError(true);
+    } else {
+      setDisplayList(matchingRes);
+    }
 
-  const ShimmerView = () => {
-    return (
-      <main className="main-container">
-        <div className="container cards-container">
-          {dummyArr.map((_, index) => (
-            <Shimmer key={index} />
-          ))}
-        </div>
-      </main>
-    );
+    // setDisplayList(matchingRes);
   };
 
   return (
     <div>
       <Navbar />
 
-      {displayList.length === 0 ? (
-        <ShimmerView />
-      ) : (
-        <Body
-          handleTopRated={filterTopRated}
-          handleAllRes={getAllRes}
-          handleFastest={getFastest}
-          displayList={displayList}
-          onSearch={handleSubmit}
-        />
-      )}
+      <Body
+        handleTopRated={filterTopRated}
+        handleAllRes={getAllRes}
+        handleFastest={getFastest}
+        displayList={displayList}
+        onSearch={handleSearch}
+        searchError={searchError}
+      />
     </div>
   );
 };
