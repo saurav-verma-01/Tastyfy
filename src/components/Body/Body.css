@@ -10,7 +10,8 @@
   align-items: center;
   gap: 1rem;
 }
-.filter-btn {
+.filter-btn,
+.filter input {
   cursor: pointer;
   width: 8rem;
   height: 2rem;
@@ -31,4 +32,23 @@
 }
 .filter-btn:is(:active) {
   transform: translateY(-2px);
+}
+
+.filter .search-bar {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+.search-bar input:first-child {
+  background-color: transparent;
+  border: 2px solid #ffb703;
+  outline: none;
+  padding-left: 1rem;
+  color: #2c2000;
+  caret-color: #011924;
+}
+.search-bar input:last-child {
+  width: 3rem;
+  outline: none;
 }

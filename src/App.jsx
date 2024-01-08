@@ -42,6 +42,13 @@ const App = () => {
     setDisplayList(nearestRes);
   };
 
+  const handleSubmit = (searchTerm) => {
+    const matchingRes = resList.filter((res) =>
+      res.info.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setDisplayList(matchingRes);
+  };
+
   const dummyArr = Array.from({ length: 12 });
 
   const ShimmerView = () => {
@@ -68,6 +75,7 @@ const App = () => {
           handleAllRes={getAllRes}
           handleFastest={getFastest}
           displayList={displayList}
+          onSearch={handleSubmit}
         />
       )}
     </div>
