@@ -6665,7 +6665,7 @@ const resData = {
   csrfToken: "QKKuc9mVlCv2-NczLru1QmwDbYw2TkHzwDgGgKyU",
 };
 
-const SWIGGY_API_URL = `https://www.swiggy.com/dapi/restaurants/list/v5?lat=27.4924134&lng=77.673673&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`;
+const SWIGGY_API_URL = `https://crossorigin.me/https://www.swiggy.com/dapi/restaurants/list/v5?lat=27.4924134&lng=77.673673&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`;
 
 const IMAGE_URL = `https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/`;
 
