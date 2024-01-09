@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import Body from "./components/Body/Body";
-import Navbar from "./components/Navbar/Navbar";
+import Body from "../../components/Body/Body";
+import Navbar from "../../components/Navbar/Navbar";
 
-import { SWIGGY_API_URL } from "./constants";
+import { SWIGGY_API_URL } from "../../constants";
 
 // const resArr =
 //   resData.data.cards[5].card.card.gridElements.infoWithStyle.restaurants;

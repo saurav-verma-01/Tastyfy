@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import CardsContainer from "../CardsContainer/CardsContainer";
 import ResCard from "../ResCard/ResCard";
 import "./Body.css";
-import Shimmer from "../../Shimmer/Shimmer";
+import Shimmer from "../Shimmer/Shimmer";
 
 const dummyArr = Array.from({ length: 12 });
 
