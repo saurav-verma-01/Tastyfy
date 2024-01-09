@@ -14,6 +14,7 @@ const Body = ({
   handleFastest,
   onSearch,
   searchError,
+  resHeadline,
 }) => {
   const [searchText, setSearchText] = useState("");
 
@@ -29,6 +30,7 @@ const Body = ({
   return (
     <main className="main-container">
       <div className="container ">
+        <h2 className="res-headline">{resHeadline}</h2>
         <div className="filter">
           <form className="search-bar" onSubmit={handleSubmit}>
             <input

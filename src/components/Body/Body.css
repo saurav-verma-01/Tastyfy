@@ -4,9 +4,10 @@
 
 .filter {
   padding: 2rem;
+  padding-left: 0;
   border-radius: 0.5rem;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   gap: 1rem;
 }
@@ -60,4 +61,8 @@
   margin-top: 4rem;
   color: #2c2000;
   font-size: 2rem;
+}
+.res-headline {
+  color: #011924;
+  font-size: 1.8rem;
 }

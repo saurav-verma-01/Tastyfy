@@ -10,7 +10,7 @@ const App = () => {
   const [resList, setResList] = useState([]);
   const [displayList, setDisplayList] = useState([]);
   const [searchError, setSearchError] = useState(false);
-
+  const [resHeadline, setResHeadline] = useState("");
   useEffect(() => {
     fetchResData();
   }, []);
@@ -28,6 +28,7 @@ const App = () => {
     setResList(
       fetchedData.data.cards[5].card.card.gridElements.infoWithStyle.restaurants
     );
+    setResHeadline(fetchedData?.data?.cards[3]?.card?.card?.title);
   };
 
   const filterTopRated = () => {
@@ -77,6 +78,7 @@ const App = () => {
         displayList={displayList}
         onSearch={handleSearch}
         searchError={searchError}
+        resHeadline={resHeadline}
       />
     </div>
   );
