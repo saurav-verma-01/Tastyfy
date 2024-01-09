@@ -20,7 +20,7 @@ const Body = ({
 
   useEffect(() => {
     onSearch(searchText);
-  }, [searchText, onSearch]);
+  }, [searchText]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
