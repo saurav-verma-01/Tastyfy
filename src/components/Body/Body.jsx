@@ -39,7 +39,6 @@ const Body = ({
               className="search-box"
               onChange={(e) => {
                 setSearchText(e.target.value);
-                console.log(searchText);
               }}
             />
             <input type="submit" value="🔍" className="submit" />
