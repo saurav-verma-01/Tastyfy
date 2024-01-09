@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Navbar.css";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [loginText, setLoginText] = useState("Login");
@@ -9,14 +10,17 @@ const Navbar = () => {
   return (
     <header className="header">
       <div className="container">
-        <h1 className="logo">TASTIFY</h1>
+        <h1 className="logo">
+          {" "}
+          <NavLink to="/">TASTIFY</NavLink>
+        </h1>
         <nav className="nav">
           <ul>
             <li>
-              <a href="#">About</a>
+              <NavLink to="/about">About</NavLink>
             </li>
             <li>
-              <a href="#">Menu</a>
+              <NavLink to="/contact">Contact</NavLink>
             </li>
             <li>
               <a href="#">Services</a>

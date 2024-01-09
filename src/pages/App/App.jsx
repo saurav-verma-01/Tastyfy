@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Body from "../../components/Body/Body";
-import Navbar from "../../components/Navbar/Navbar";
 
 import { SWIGGY_API_URL } from "../../constants";
 
@@ -68,7 +67,6 @@ const App = () => {
 
   return (
     <div>
-      <Navbar />
       <Body
         handleTopRated={filterTopRated}
         handleAllRes={getAllRes}

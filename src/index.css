@@ -36,3 +36,23 @@ a {
   max-width: 80rem;
   margin-inline: auto;
 }
+
+.page {
+  background-color: burlywood;
+  height: calc(100vh - 72px);
+  padding: 1rem;
+}
+.page h1 {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 3rem;
+}
+.page h2 {
+  color: rgb(46, 26, 1);
+  text-decoration: underline;
+  margin-top: 1rem;
+}
+.page p {
+  width: 60%;
+  margin-top: 1rem;
+}
