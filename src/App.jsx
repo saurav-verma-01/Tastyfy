@@ -78,6 +78,7 @@ const App = () => {
         searchError={searchError}
         resHeadline={resHeadline}
       />
+      <h2>Footer is Here</h2>
     </div>
   );
 };
