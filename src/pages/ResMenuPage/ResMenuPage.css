@@ -1,0 +1,13 @@
+.menu {
+  background-color: #f5f1f1;
+}
+
+.menu .container {
+  padding: 4rem 0;
+}
+
+.menu .res-name {
+  font-size: 2rem;
+  text-align: center;
+  margin: 0 0 1rem;
+}
