@@ -10,6 +10,7 @@ import ErrorPage from "./pages/ErrorPage/ErrorPage.jsx";
 
 import AppLayout from "./AppLayout.jsx";
 import App from "./pages/App/App.jsx";
+import ResMenuPage from "./pages/ResMenuPage/ResMenuPage.jsx";
 
 const appRouter = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/contact",
         element: <ContactUsPage />,
+      },
+      {
+        path: "/restraunt/:resID",
+        element: <ResMenuPage />,
       },
     ],
   },

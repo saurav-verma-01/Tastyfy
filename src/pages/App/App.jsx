@@ -27,8 +27,10 @@ const App = () => {
     // console.log("After Fetching Restraunt Data");
     setResHeadline(fetchedData?.data?.cards[3]?.card?.card?.title);
     setResList(
-      fetchedData.data.cards[5].card.card.gridElements.infoWithStyle.restaurants
+      fetchedData?.data?.cards[4]?.card?.card?.gridElements.infoWithStyle
+        .restaurants
     );
+    // console.log(resList);
   };
 
   const filterTopRated = () => {
