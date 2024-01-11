@@ -11,3 +11,92 @@
   text-align: center;
   margin: 0 0 1rem;
 }
+
+.card-1,
+.card-2 {
+  max-width: 50rem;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 2rem;
+  background-color: rgba(255, 255, 255, 0.863);
+}
+.flex-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.res-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.single-res-name {
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+.single-res-cuisines {
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  opacity: 0.85;
+}
+.single-res-add {
+  font-size: 0.8rem;
+}
+.res-rating {
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.line {
+  width: 100%;
+  background-color: black;
+  height: 2px;
+  margin-block: 0.5rem;
+}
+.rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: green;
+  font-weight: bold;
+}
+.rating .star {
+  background-color: green;
+  width: 26px;
+  height: 26px;
+
+  text-align: center;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}
+.rating-count {
+  font-size: 0.75rem;
+}
+.delivery {
+  margin-top: 1rem;
+  opacity: 0.7;
+
+  font-size: 0.8rem;
+}
+
+.card-2 h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.item-img {
+  object-fit: cover;
+  border-radius: 0.5rem;
+  height: 100px;
+  width: 120px;
+}
+
+.brandHeader {
+  font-size: 1.2rem;
+}

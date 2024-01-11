@@ -1,0 +1,22 @@
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.item-name {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.item-cost {
+  font-size: 0.8rem;
+  margin-bottom: 0.25rem;
+}
+.serves {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  font-style: italic;
+}
