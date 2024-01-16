@@ -15,8 +15,9 @@
   font-size: 0.8rem;
   margin-bottom: 0.25rem;
 }
-.serves {
+.description {
   font-size: 0.8rem;
   opacity: 0.8;
+  width: 75%;
   font-style: italic;
 }

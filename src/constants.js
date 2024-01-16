@@ -6671,4 +6671,12 @@ const IMAGE_URL = `https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,
 
 const SINGLE_RESTRAUNT_INFO = `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=27.4924134&lng=77.673673&restaurantId=713073&catalog_qa=undefined&submitAction=ENTER`;
 
-export { resData, IMAGE_URL, SWIGGY_API_URL, SINGLE_RESTRAUNT_INFO };
+const DISH_IMG_URL = `https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/`;
+
+export {
+  resData,
+  IMAGE_URL,
+  SWIGGY_API_URL,
+  SINGLE_RESTRAUNT_INFO,
+  DISH_IMG_URL,
+};

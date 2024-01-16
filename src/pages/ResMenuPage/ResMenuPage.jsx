@@ -35,7 +35,19 @@ const ResMenuPage = () => {
     resInfo.data.cards[0].card.card.info.aggregatedDiscountInfoV2
       .descriptionList[0].meta;
 
-  const menuList = resInfo.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards;
+  const menuItems2 =
+    resInfo.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards[2].card.card
+      .itemCards;
+  const menuItems3 =
+    resInfo.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards[3].card.card
+      .itemCards;
+  const menuItems4 =
+    resInfo.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards[4].card.card
+      .itemCards;
+
+  console.log(menuItems3);
+  const allMenuItems = [...menuItems2, ...menuItems3, ...menuItems4];
+
   return (
     <div className="menu ">
       <div className="container">
@@ -65,10 +77,9 @@ const ResMenuPage = () => {
             <h2 className="brandHeader">{brandHeaderText}</h2>
           )}
 
-          {menuList.map((listItem) => (
-            <MenuItem info={listItem} />
+          {allMenuItems.map((item) => (
+            <MenuItem list={item} key={item.card.info.id} />
           ))}
-          <MenuItem />
         </div>
       </div>
     </div>

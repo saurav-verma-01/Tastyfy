@@ -1,20 +1,24 @@
+/* eslint-disable react/prop-types */
+import { DISH_IMG_URL } from "../../constants";
 import "./MenuItem.css";
 
-const MenuItem = ({ info }) => {
-  console.log(info);
+const MenuItem = ({ list }) => {
+  console.log(list.card.info);
+
+  const { name, defaultPrice, description, price } = list.card.info;
+  const imageID =
+    list?.card?.info?.imageId ?? "c1cf54427a880530a70abeae704c2486";
+
   return (
     <div className="menu-item">
       <div className="item-info">
-        <p className="item-name">Pav Bhaji</p>
-        <p className="item-cost">Rs140</p>
-        <p className="serves">
-          Serves 1 | A delicious combo of mothwatering bhaji; served along with
-          soft pav - perfect to fulfill your cravings.
-        </p>
+        <p className="item-name">{name}</p>
+        <p className="item-cost">Rs {(defaultPrice || price) / 100}</p>
+        <p className="description">{description}</p>
       </div>
       <div className="item-img-box">
         <img
-          src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/tujfgr4ct9sp69n2qpir"
+          src={DISH_IMG_URL + imageID}
           alt="menui item"
           className="item-img"
         />
