@@ -16,6 +16,7 @@ const ResCard = ({ res }) => {
   const areaName = res?.info?.areaName;
   const locality = res?.info?.locality;
 
+  console.log(res);
   return (
     <div className="res-card">
       <div className="img-box">

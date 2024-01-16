@@ -1,10 +1,9 @@
 /* eslint-disable react/prop-types */
+
 import { DISH_IMG_URL } from "../../constants";
 import "./MenuItem.css";
 
 const MenuItem = ({ list }) => {
-  console.log(list.card.info);
-
   const { name, defaultPrice, description, price } = list.card.info;
   const imageID =
     list?.card?.info?.imageId ?? "c1cf54427a880530a70abeae704c2486";

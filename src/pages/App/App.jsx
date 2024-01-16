@@ -25,9 +25,10 @@ const App = () => {
 
     // setting Res List to Fetched Data
     // console.log("After Fetching Restraunt Data");
+    // console.log(fetchedData);
     setResHeadline(fetchedData?.data?.cards[3]?.card?.card?.title);
     setResList(
-      fetchedData?.data?.cards[4]?.card?.card?.gridElements.infoWithStyle
+      fetchedData?.data?.cards[2]?.card?.card?.gridElements.infoWithStyle
         .restaurants
     );
     // console.log(resList);

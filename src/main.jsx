@@ -31,7 +31,7 @@ const appRouter = createBrowserRouter([
         element: <ContactUsPage />,
       },
       {
-        path: "/restraunt/:resID",
+        path: "/restraunts/:resID",
         element: <ResMenuPage />,
       },
     ],

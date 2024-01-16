@@ -4,6 +4,7 @@ import CardsContainer from "../CardsContainer/CardsContainer";
 import ResCard from "../ResCard/ResCard";
 import "./Body.css";
 import Shimmer from "../Shimmer/Shimmer";
+import { Link } from "react-router-dom";
 
 const dummyArr = Array.from({ length: 12 });
 
@@ -59,7 +60,11 @@ const Body = ({
           ) : displayList.length === 0 ? (
             dummyArr.map((_, index) => <Shimmer key={index} />)
           ) : (
-            displayList.map((res) => <ResCard key={res.info.id} res={res} />)
+            displayList.map((res) => (
+              <Link to={`/restraunts/${res.info.id}`} key={res.info.id}>
+                <ResCard res={res} />
+              </Link>
+            ))
           )}
         </CardsContainer>
       </div>

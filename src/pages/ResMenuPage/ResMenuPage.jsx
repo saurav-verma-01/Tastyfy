@@ -1,18 +1,22 @@
 import { useEffect } from "react";
-import { SINGLE_RESTRAUNT_INFO } from "../../constants";
+import { IMAGE_URL, SINGLE_RESTRAUNT_INFO } from "../../constants";
 import "./ResMenuPage.css";
 import { useState } from "react";
 import Shimmer from "../../components/Shimmer/Shimmer";
 import MenuItem from "../../components/MenuItem/MenuItem";
+import { useParams } from "react-router-dom";
 
 const ResMenuPage = () => {
   const [resInfo, setResInfo] = useState(null);
   useEffect(() => {
     fetchResInfo();
   }, []);
+  const resPath = useParams();
+  const fetch_URL = SINGLE_RESTRAUNT_INFO + resPath.resID;
   const fetchResInfo = async () => {
-    const res = await fetch(SINGLE_RESTRAUNT_INFO);
+    const res = await fetch(fetch_URL);
     const data = await res.json();
+    console.log(data);
     setResInfo(data);
   };
   if (!resInfo) return <Shimmer />;
@@ -25,6 +29,7 @@ const ResMenuPage = () => {
     brandHeaderText,
     totalRatingsString,
     avgRatingString,
+    cloudinaryImageId,
   } = resInfo.data.cards[0].card.card.info;
 
   const discountText =
@@ -45,13 +50,19 @@ const ResMenuPage = () => {
     resInfo.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards[4].card.card
       .itemCards;
 
-  console.log(menuItems3);
+  console.log(resInfo);
   const allMenuItems = [...menuItems2, ...menuItems3, ...menuItems4];
 
   return (
     <div className="menu ">
       <div className="container">
         <div className="card-1">
+          <div className="img-background">
+            <img
+              src={IMAGE_URL + cloudinaryImageId}
+              alt="Restraunt Background"
+            />
+          </div>
           <div className="flex-card">
             <div className="res-details">
               <p className="single-res-name">{name}</p>
