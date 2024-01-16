@@ -1,0 +1,25 @@
+.user-cls {
+  background-color: rgb(36, 26, 1);
+  color: rgb(255, 238, 195);
+}
+.user-fn {
+  background-color: rgb(20, 0, 39);
+  color: rgb(228, 200, 255);
+}
+
+.user-cls,
+.user-fn {
+  padding: 2rem;
+}
+.user-cls h1,
+.user-fn h1 {
+  text-align: left;
+  font-size: 2.125rem;
+}
+.user-cls h2,
+.user-fn h2 {
+  color: rgb(202, 92, 78);
+  margin-block: 2rem;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
