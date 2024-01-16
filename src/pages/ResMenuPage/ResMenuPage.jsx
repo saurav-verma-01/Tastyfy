@@ -1,24 +1,16 @@
-import { useEffect } from "react";
-import { IMAGE_URL, SINGLE_RESTRAUNT_INFO } from "../../constants";
+import { IMAGE_URL } from "../../constants";
 import "./ResMenuPage.css";
-import { useState } from "react";
+
 import Shimmer from "../../components/Shimmer/Shimmer";
 import MenuItem from "../../components/MenuItem/MenuItem";
 import { useParams } from "react-router-dom";
+import useRestrauntMenu from "../../utils/useRestrauntMenu";
 
 const ResMenuPage = () => {
-  const [resInfo, setResInfo] = useState(null);
-  useEffect(() => {
-    fetchResInfo();
-  }, []);
-  const resPath = useParams();
-  const fetch_URL = SINGLE_RESTRAUNT_INFO + resPath.resID;
-  const fetchResInfo = async () => {
-    const res = await fetch(fetch_URL);
-    const data = await res.json();
-    console.log(data);
-    setResInfo(data);
-  };
+  const { resID } = useParams();
+
+  const resInfo = useRestrauntMenu(resID);
+
   if (!resInfo) return <Shimmer />;
 
   const {
