@@ -23,3 +23,23 @@
   font-size: 1.5rem;
   text-decoration: none;
 }
+
+.btn-set {
+  display: flex;
+  width: 30%;
+  background-color: rgb(66, 9, 1);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  justify-content: space-between;
+}
+
+.btn-set button {
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  background-color: rgb(17, 3, 1);
+  color: rgb(255, 238, 235);
+  border: none;
+}
