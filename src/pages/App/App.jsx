@@ -28,7 +28,7 @@ const App = () => {
     console.log(fetchedData.data.cards);
     setResHeadline(fetchedData?.data?.cards[3]?.card?.card?.title);
     setResList(
-      resList.length <= 10
+      fetchedData.data.cards.length <= 10
         ? fetchedData?.data?.cards[2]?.card?.card?.gridElements.infoWithStyle
             .restaurants
         : fetchedData?.data?.cards[4]?.card?.card?.gridElements.infoWithStyle

@@ -1,12 +1,14 @@
 import { useState } from "react";
 import "./Navbar.css";
 import { NavLink } from "react-router-dom";
+import useOnlineStatus from "../../utils/useOnlineStatus";
 
 const Navbar = () => {
   const [loginText, setLoginText] = useState("Login");
   const handleLogin = () => {
     loginText === "Login" ? setLoginText("Logout") : setLoginText("Login");
   };
+  const onlineStatus = useOnlineStatus();
   return (
     <header className="header">
       <div className="container">
@@ -16,6 +18,7 @@ const Navbar = () => {
         </h1>
         <nav className="nav">
           <ul>
+            <li>Online Status: {onlineStatus ? "🟢" : "🔴"}</li>
             <li>
               <NavLink to="/about">About</NavLink>
             </li>

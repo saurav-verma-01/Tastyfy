@@ -5,6 +5,7 @@ import ResCard from "../ResCard/ResCard";
 import "./Body.css";
 import Shimmer from "../Shimmer/Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../../utils/useOnlineStatus";
 
 const dummyArr = Array.from({ length: 12 });
 
@@ -27,6 +28,19 @@ const Body = ({
     e.preventDefault();
     onSearch(searchText);
   };
+
+  const onlineStatus = useOnlineStatus();
+
+  if (onlineStatus === false) {
+    return (
+      <div className="container">
+        <h1>
+          Looks like you're Offline, Please check your Network connection and
+          refresh.
+        </h1>
+      </div>
+    );
+  }
 
   return (
     <main className="main-container">
