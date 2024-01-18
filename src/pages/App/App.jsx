@@ -25,10 +25,10 @@ const App = () => {
 
     // setting Res List to Fetched Data
     // console.log("After Fetching Restraunt Data");
-    console.log(
-      fetchedData.data.cards[4]?.card?.card?.gridElements.infoWithStyle
-        .restaurants
-    );
+    // console.log(
+    //   fetchedData.data.cards[4]?.card?.card?.gridElements.infoWithStyle
+    //     .restaurants
+    // );
     setResHeadline(fetchedData?.data?.cards[3]?.card?.card?.title);
     setResList(
       fetchedData.data.cards.length <= 10

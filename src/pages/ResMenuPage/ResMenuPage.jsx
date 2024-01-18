@@ -5,6 +5,7 @@ import Shimmer from "../../components/Shimmer/Shimmer";
 import MenuItem from "../../components/MenuItem/MenuItem";
 import { useParams } from "react-router-dom";
 import useRestrauntMenu from "../../utils/useRestrauntMenu";
+import ResCategory from "../../components/ResCategory/ResCategory";
 
 const ResMenuPage = () => {
   const { resID } = useParams();
@@ -32,19 +33,15 @@ const ResMenuPage = () => {
     resInfo.data.cards[0].card.card.info.aggregatedDiscountInfoV2
       .descriptionList[0].meta;
 
-  const menuItems2 =
-    resInfo.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards[2].card.card
-      .itemCards;
-  const menuItems3 =
-    resInfo.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards[3].card.card
-      .itemCards;
-  const menuItems4 =
-    resInfo.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards[4].card.card
-      .itemCards;
-
-  console.log(resInfo);
-  const allMenuItems = [...menuItems2, ...menuItems3, ...menuItems4];
-
+  const allCatCards =
+    resInfo.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards;
+  // console.log(allCatCards);
+  const categories = allCatCards.filter(
+    (category) =>
+      category.card?.card?.["@type"] ===
+      "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+  );
+  // console.log(categories);
   return (
     <div className="menu ">
       <div className="container">
@@ -80,8 +77,9 @@ const ResMenuPage = () => {
             <h2 className="brandHeader">{brandHeaderText}</h2>
           )}
 
-          {allMenuItems.map((item) => (
-            <MenuItem list={item} key={item.card.info.id} />
+          {/* { Categories}  We will build an Accordion for each and every Categoy*/}
+          {categories.map((cat) => (
+            <ResCategory key={cat.card.card.title} data={cat.card.card} />
           ))}
         </div>
       </div>
