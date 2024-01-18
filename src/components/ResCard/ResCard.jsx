@@ -16,7 +16,7 @@ const ResCard = ({ res }) => {
   const areaName = res?.info?.areaName;
   const locality = res?.info?.locality;
 
-  console.log(res);
+  // console.log(res);
   return (
     <div className="res-card">
       <div className="img-box">
@@ -43,4 +43,20 @@ const ResCard = ({ res }) => {
   );
 };
 
+// Higher order Function
+//  Input - Restraunt Card
+// Output - Promoted Restraunt Card ( With Promoted Label)
+
+const PromotedResCard = (ResCard) => {
+  return (props) => {
+    return (
+      <div>
+        <label className="promoted-label">Promoted</label>
+        <ResCard {...props} />
+      </div>
+    );
+  };
+};
+
 export default ResCard;
+export { PromotedResCard };

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import CardsContainer from "../CardsContainer/CardsContainer";
-import ResCard from "../ResCard/ResCard";
+import ResCard, { PromotedResCard } from "../ResCard/ResCard";
 import "./Body.css";
 import Shimmer from "../Shimmer/Shimmer";
 import { Link } from "react-router-dom";
@@ -28,6 +28,8 @@ const Body = ({
     e.preventDefault();
     onSearch(searchText);
   };
+
+  const ResPromoted = PromotedResCard(ResCard);
 
   const onlineStatus = useOnlineStatus();
 
@@ -76,7 +78,11 @@ const Body = ({
           ) : (
             displayList.map((res) => (
               <Link to={`/restraunts/${res.info.id}`} key={res.info.id}>
-                <ResCard res={res} />
+                {res?.data?.promoted ? (
+                  <ResPromoted res={res} />
+                ) : (
+                  <ResCard res={res} />
+                )}
               </Link>
             ))
           )}
