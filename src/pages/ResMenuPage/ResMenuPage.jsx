@@ -2,15 +2,21 @@ import { IMAGE_URL } from "../../constants";
 import "./ResMenuPage.css";
 
 import Shimmer from "../../components/Shimmer/Shimmer";
-import MenuItem from "../../components/MenuItem/MenuItem";
+// import MenuItem from "../../components/MenuItem/MenuItem";
 import { useParams } from "react-router-dom";
 import useRestrauntMenu from "../../utils/useRestrauntMenu";
 import ResCategory from "../../components/ResCategory/ResCategory";
+import { useState } from "react";
 
 const ResMenuPage = () => {
+  const [showCatIndex, setShowCatIndex] = useState(null);
   const { resID } = useParams();
 
   const resInfo = useRestrauntMenu(resID);
+
+  const handleShowCategory = (i) => {
+    setShowCatIndex((prev) => (prev === i ? null : i));
+  };
 
   if (!resInfo) return <Shimmer />;
 
@@ -78,8 +84,15 @@ const ResMenuPage = () => {
           )}
 
           {/* { Categories}  We will build an Accordion for each and every Categoy*/}
-          {categories.map((cat) => (
-            <ResCategory key={cat.card.card.title} data={cat.card.card} />
+          {categories.map((cat, i) => (
+            <ResCategory
+              key={cat.card.card.title}
+              data={cat.card.card}
+              showList={showCatIndex === i}
+              // onShow={() => handleShowCategory(i)}
+              onShow={handleShowCategory}
+              i={i}
+            />
           ))}
         </div>
       </div>
